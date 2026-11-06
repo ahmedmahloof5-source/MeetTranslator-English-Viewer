@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "Meet Japanese Translator",
+  "version": "2.3.0",
+  "description": "Translate Japanese text in Google Meet and prepare English messages in Japanese or Romaji.",
+  "minimum_chrome_version": "109",
+  "permissions": [],
+  "host_permissions": [
+    "https://translate.googleapis.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://meet.google.com/*"
+      ],
+      "js": [
+        "translator.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_title": "Meet Translator \u2014 click to hide/show",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  }
+}
